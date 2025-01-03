@@ -11,7 +11,7 @@
 			}
 			var lines = content.Split("\n");
 			_title = new OrgTitle(lines[0]);
-			_content = string.Join("\n", lines.Skip(1));
+			_body = new OrgBody(string.Join("\n", lines.Skip(1)));
 			_children = new List<OrgNode>();
 		}
 		public string Title
@@ -46,18 +46,22 @@
 			get => _title.Task;
 			set => _title.Task = value;
 		}
-		public string Description
+		public string Body
 		{
-			get => _content;
-			set => _content = value;
+			get => _body.Body;
+			set => _body.Body = value;
 		}
 		public void AddChild(OrgNode child)
 		{
 			_children.Add(child);
 		}
+		public override string ToString()
+		{
+			return _title.ToString() + "\n" + _body.ToString();
+		}
 
-		private string _content;
 		private OrgTitle _title;
+		private OrgBody _body;
 		private OrgNode? _parent;
 		private List<OrgNode> _children;
 	}

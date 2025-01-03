@@ -9,7 +9,6 @@ internal class OrgTitle
 	{
 		_raw = raw;
 	}
-	private string _raw;
 	public string title
 	{
 		get => Regex.Replace(strip_task_keys(_raw.TrimStart('*')), OrgConfig.trim_tags_regex, "").Trim();
@@ -27,7 +26,7 @@ internal class OrgTitle
 	}
 	public void AddTag(string tag)
 	{
-		_raw = _raw.TrimEnd() + " :" + tag + ":";
+		_raw = _raw.TrimEnd() + (_raw.Last() == ':' ? $"{tag}:" : $" :{tag}:");
 	}
 	public void RemoveTag(string tag)
 	{
@@ -53,6 +52,11 @@ internal class OrgTitle
 			}
 		}
 	}
+	public override string ToString()
+	{
+		return _raw;
+	}
+	private string _raw;
 	private string TaskType()
 	{
 		if (!IsTask()) return "";

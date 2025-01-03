@@ -14,4 +14,6 @@ public class OrgConfig
 	public List<string> TodoKeys { get; set; }
 	public List<string> DoneKeys { get; set; }
 	public List<string> TaskKeys => TodoKeys.Concat(DoneKeys).ToList();
+	public static string[] OrgModeMetaDataKeywords = { "SCHEDULED:", "DEADLINE:", ":PROPERTIES:", ":END:", ":DRAWER:" };
+
 }
