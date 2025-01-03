@@ -102,6 +102,16 @@ public sealed class OrgNodeTests
 		// Assert
 		Assert.AreEqual(want, getRawTitle(orgNode));
 	}
+	[TestMethod]
+	[DataRow("Content", "* Title\nContent")]
+	public void OrgNode_CanGetBody(string want, string rawOrgNode)
+	{
+		// Arrange
+		var orgNode = new OrgNode(rawOrgNode, null);
+		// Assert
+		Assert.AreEqual(want, orgNode.Body);
+	}
+
 	private string getRawTitle(OrgNode node)
 	{
 		return node.ToString().Split("\n")[0];

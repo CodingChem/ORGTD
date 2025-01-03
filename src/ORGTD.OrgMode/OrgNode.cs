@@ -57,6 +57,7 @@
 		}
 		public override string ToString()
 		{
+			//TODO: Add children
 			return _title.ToString() + "\n" + _body.ToString();
 		}
 
