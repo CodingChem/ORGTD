@@ -20,17 +20,23 @@ internal class OrgTitle
 		set => _raw = new string('*', value) + _raw.TrimStart('*');
 	}
 
-	public List<string> Tags()
+	public List<string> Tags
 	{
-		return Regex.Matches(_raw, OrgConfig.tags_regex).Select(m => m.Value).ToList();
+		get => Regex.Matches(_raw, OrgConfig.tags_regex).Select(m => m.Value).ToList();
+		set
+		{
+			var tags = " :" +string.Join(":", value) + ":";
+			_raw = Regex.Replace(_raw, OrgConfig.trim_tags_regex, "");
+			_raw = _raw.TrimEnd() + tags;
+		}
 	}
 	public void AddTag(string tag)
 	{
-		_raw = _raw.TrimEnd() + (_raw.Last() == ':' ? $"{tag}:" : $" :{tag}:");
+		Tags = Tags.Append(tag).ToList();
 	}
 	public void RemoveTag(string tag)
 	{
-		_raw = Regex.Replace(_raw, $":{tag}:", "");
+		Tags = Tags.Where(t => t != tag).ToList();
 	}
 	public bool IsTask()
 	{

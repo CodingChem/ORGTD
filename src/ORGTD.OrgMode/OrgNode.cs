@@ -26,7 +26,7 @@
 		}
 		public List<string> GetTags()
 		{
-			return _title.Tags();
+			return _title.Tags;
 		}
 		public void AddTag(string tag)
 		{

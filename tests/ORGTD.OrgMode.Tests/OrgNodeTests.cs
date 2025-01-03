@@ -56,4 +56,15 @@ public sealed class OrgNodeTests
 		// Assert
 		CollectionAssert.AreEqual(want, orgNode.GetTags(), $"Want: {string.Join(",", want)}\nGot: {string.Join(",", orgNode.GetTags())}");
 	}
+	[TestMethod]
+	[DataRow(new string[] { "tag1", "tag2" }, "Title :tag1:tag2:tag3:", "tag3")]
+	public void OrgNode_CanRemoveTag(string[] want, string raw_title, string tag)
+	{
+		// Arrange
+		var orgNode = new OrgNode(raw_title, null);
+		// Act
+		orgNode.RemoveTag(tag);
+		// Assert
+		CollectionAssert.AreEqual(want, orgNode.GetTags(), $"Want: {string.Join(",", want)}\nGot: {string.Join(",", orgNode.GetTags())}");
+	}
 }
