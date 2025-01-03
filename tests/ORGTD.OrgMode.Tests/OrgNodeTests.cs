@@ -67,4 +67,43 @@ public sealed class OrgNodeTests
 		// Assert
 		CollectionAssert.AreEqual(want, orgNode.GetTags(), $"Want: {string.Join(",", want)}\nGot: {string.Join(",", orgNode.GetTags())}");
 	}
+	[TestMethod]
+	[DataRow(false, "* Title")]
+	[DataRow(true, "* TODO Title :tag1:")]
+	[DataRow(true, "** NEXT Title :tag1:tag2:")]
+	public void OrgNode_CanCheckIfTask(bool want, string raw_title)
+	{
+		// Arrange
+		var orgNode = new OrgNode(raw_title, null);
+		// Assert
+		Assert.AreEqual(want, orgNode.IsTask());
+	}
+	[TestMethod]
+	[DataRow("", "* Title")]
+	[DataRow("TODO", "* TODO Title :tag1:")]
+	[DataRow("NEXT", "** NEXT Title :tag1: :tag2:")]
+	[DataRow("WAIT", "*** WAIT Title :tag1:tag2:")]
+	[DataRow("DONE", "**** DONE Title :tag1:tag2:")]
+	public void OrgNode_CanGetTask(string want, string raw_title)
+	{
+		// Arrange
+		var orgNode = new OrgNode(raw_title, null);
+		// Assert
+		Assert.AreEqual(want, orgNode.Task);
+	}
+	[TestMethod]
+	[DataRow("*** TODO Title :tag1:tag2:", "*** NEXT Title :tag1:tag2:", "NEXT")]
+	public void OrgNode_CanSetTask(string want, string raw_title, string task)
+	{
+		// Arrange
+		var orgNode = new OrgNode(raw_title, null);
+		// Act
+		orgNode.Task = task;
+		// Assert
+		Assert.AreEqual(want, getRawTitle(orgNode));
+	}
+	private string getRawTitle(OrgNode node)
+	{
+		return node.ToString().Split()[0];
+	}
 }
