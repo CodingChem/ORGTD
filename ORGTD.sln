@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORGTD.MAUI", "ORGTD.MAUI\ORGTD.MAUI.csproj", "{E810891F-2979-4BED-BA68-2084A1F479F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORGTD.MAUI", "src\ORGTD.MAUI\ORGTD.MAUI.csproj", "{E810891F-2979-4BED-BA68-2084A1F479F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
