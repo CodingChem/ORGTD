@@ -92,7 +92,7 @@ public sealed class OrgNodeTests
 		Assert.AreEqual(want, orgNode.Task);
 	}
 	[TestMethod]
-	[DataRow("*** TODO Title :tag1:tag2:", "*** NEXT Title :tag1:tag2:", "NEXT")]
+	[DataRow("*** TODO Title :tag1:tag2:", "*** NEXT Title :tag1:tag2:", "TODO")]
 	public void OrgNode_CanSetTask(string want, string raw_title, string task)
 	{
 		// Arrange
@@ -104,6 +104,6 @@ public sealed class OrgNodeTests
 	}
 	private string getRawTitle(OrgNode node)
 	{
-		return node.ToString().Split()[0];
+		return node.ToString().Split("\n")[0];
 	}
 }

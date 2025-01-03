@@ -54,7 +54,7 @@ internal class OrgTitle
 			else
 			{
 				// Insert task type after level
-				_raw = _raw.Insert(level, value + " ");
+				_raw = _raw.Insert(level +1, value + " ");
 			}
 		}
 	}
