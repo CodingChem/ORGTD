@@ -6,10 +6,6 @@
     xmlns:local="clr-namespace:ORGTD.MAUI.Pages"
     Shell.FlyoutBehavior="Disabled"
     Shell.TabBarIsVisible="True"
-    Shell.TabBarBackgroundColor="White"
-    Shell.TabBarForegroundColor="Red"
-    Shell.TabBarUnselectedColor="Green"
-    Shell.TabBarTitleColor="Blue"
     Title="ORGTD.MAUI">
     <TabBar>
         <Tab Title="Journal" Icon="MauiIcon">
