@@ -3,32 +3,32 @@
     x:Class="ORGTD.MAUI.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ORGTD.MAUI.Pages"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:Views="clr-namespace:ORGTD.MAUI.Views"
+    Shell.FlyoutBehavior="Flyout"
     Shell.TabBarIsVisible="True"
     Title="ORGTD.MAUI">
-    <TabBar>
-        <Tab Title="Journal" Icon="MauiIcon">
-            <ShellContent
-        ContentTemplate="{DataTemplate local:JournalPage}"
-        Route="JournalPage" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Journal">
+            <ShellContent Title="Daily Journal"
+                               ContentTemplate="{DataTemplate Views:JournalPage}"
+                               Route="JournalPage" />
         </Tab>
-        <Tab Title="Notes" Icon="MauiIcon">
-            <ShellContent
-        ContentTemplate="{DataTemplate local:NotesPage}"
-        Route="NotesPage" />
-        </Tab>
-        <Tab Title="Tasks" Icon="MauiIcon">
-            <ShellContent
-        ContentTemplate="{DataTemplate local:TasksPage}"
-        Route="TasksPage" />
-        </Tab>
-        <Tab Title="Agenda" Icon="MauiIcon">
-            <ShellContent
-        ContentTemplate="{DataTemplate local:AgendaPage}"
-        Route="AgendaPage" />
-        </Tab>
-    </TabBar>
+        <Tab Title="Notes">
+            <ShellContent Title="Notes"
+                          ContentTemplate="{DataTemplate Views:NotesPage}"
+                          Route="NotesPage" />
 
+        </Tab>
+        <Tab Title="Tasks">
+            <ShellContent Title="Tasks"
+                      ContentTemplate="{DataTemplate Views:TasksPage}"
+                      Route="TasksPage" />
+        </Tab>
+        <Tab Title="Agenda">
+            <ShellContent Title="Agenda"
+                          ContentTemplate="{DataTemplate Views:AgendaPage}"
+                          Route="AgendaPage" />
+        </Tab>
+    </FlyoutItem>
 
 </Shell>

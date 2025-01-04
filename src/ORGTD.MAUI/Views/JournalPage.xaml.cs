@@ -1,4 +1,4 @@
-namespace ORGTD.MAUI.Pages;
+namespace ORGTD.MAUI.Views;
 
 public partial class JournalPage : ContentPage
 {
