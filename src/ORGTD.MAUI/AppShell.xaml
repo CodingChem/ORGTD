@@ -8,6 +8,18 @@
     Shell.TabBarIsVisible="True"
     Title="ORGTD.MAUI">
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Capture Task">
+            <ShellContent Title="Capture Task"
+                          ContentTemplate="{DataTemplate Views:CaptureTaskPage}"
+                          Route="CaptureTaskPage" />
+        </Tab>
+        <Tab Title="Capture Note">
+            <ShellContent Title="Capture Note"
+                          ContentTemplate="{DataTemplate Views:CaptureNotePage}"
+                          Route="CaptureNotePage" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <Tab Title="Journal">
             <ShellContent Title="Daily Journal"
                                ContentTemplate="{DataTemplate Views:JournalPage}"

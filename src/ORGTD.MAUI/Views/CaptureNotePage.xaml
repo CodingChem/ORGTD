@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ORGTD.MAUI.Views.CaptureNotePage"
+             Title="CaptureNotePage">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Title:" />
+            <Entry Placeholder="Enter title" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Include timestamp"/>
+            <CheckBox />
+        </HorizontalStackLayout>
+        <Editor Placeholder="Enter note" HeightRequest="400" x:Name="NoteEditor"
+                Focused="OnNoteEditorFocused"
+                Unfocused="OnNoteEditorUnfocused"/>
+        <HorizontalStackLayout>
+            <Button Text="Save" />
+            <Button Text="Cancel" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
